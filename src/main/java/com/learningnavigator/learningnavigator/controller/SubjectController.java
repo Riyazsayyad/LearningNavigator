@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import com.learningnavigator.learningnavigator.service.*;
+import com.learningnavigator.learningnavigator.entity.*;
+
 @RestController
 @RequestMapping("/subjects")
 public class SubjectController {

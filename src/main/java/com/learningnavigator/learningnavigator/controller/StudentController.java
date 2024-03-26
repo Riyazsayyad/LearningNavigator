@@ -6,6 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
+import com.learningnavigator.learningnavigator.service.*;
+import com.learningnavigator.learningnavigator.entity.*;
 
 @RestController
 @RequestMapping("/students")
@@ -22,8 +26,8 @@ public class StudentController {
 
     @GetMapping("/{studentId}")
     public ResponseEntity<Student> getStudentById(@PathVariable Long studentId) {
-        Student student = studentService.getStudentById(studentId);
-        return new ResponseEntity<>(student, HttpStatus.OK);
+        Optional<Student> student = studentService.getStudentById(studentId);
+        return new ResponseEntity<>(student.get(), HttpStatus.OK);
     }
 
     @PostMapping

@@ -1,6 +1,6 @@
 package com.learningnavigator.learningnavigator.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 import lombok.*;
 
@@ -9,13 +9,15 @@ import lombok.*;
 @AllArgsConstructor 
 
 @Entity
+@Table(name = "EXAM")
+
 public class Exam {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(name = "exam_id", unique = true)
     private String examId;
 
     @ManyToOne
@@ -28,4 +30,3 @@ public class Exam {
                inverseJoinColumns = @JoinColumn(name = "student_id"))
     private List<Student> registeredStudents;
 }
-

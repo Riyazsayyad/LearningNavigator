@@ -1,6 +1,6 @@
 package com.learningnavigator.learningnavigator.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 import lombok.*;
 
@@ -9,6 +9,8 @@ import lombok.*;
 @AllArgsConstructor 
 
 @Entity
+@Table(name="SUBJECT")
+
 public class Subject {
 
     @Id

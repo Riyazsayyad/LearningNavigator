@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+import com.learningnavigator.learningnavigator.repository.*;
+import com.learningnavigator.learningnavigator.entity.*;
+
 @Service
 public class SubjectService {
 
@@ -18,6 +21,5 @@ public class SubjectService {
         return subjectRepository.save(subject);
     }
 
-    // Other methods for CRUD operations on subjects
 }
 
