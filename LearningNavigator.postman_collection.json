@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "59087d23-d88b-46de-b948-701564f48c7e",
+		"name": "LearningNavigator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26672039"
+	},
+	"item": [
+		{
+			"name": "Hidden Feature",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": "http://localhost:8080/learningnavigator/hidden-feature/178"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"registrationId\": \"2024006\",\r\n    \"name\": \"Sophia Brown\",\r\n    \"enrolledSubjects\": []\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/learningnavigator/students"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/learningnavigator/students"
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/learningnavigator/students/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Subject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 6,\r\n  \"subjectId\": \"CMP401\",\r\n  \"name\": \"Computer Programming\",\r\n  \"enrolledStudents\": [],\r\n  \"exams\": []\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/learningnavigator/subjects"
+			},
+			"response": []
+		},
+		{
+			"name": "List Subjects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/learningnavigator/subjects"
+			},
+			"response": []
+		},
+		{
+			"name": "Enroll Subject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/learningnavigator/students/2/enroll-subject/4"
+			},
+			"response": []
+		}
+	]
+}
