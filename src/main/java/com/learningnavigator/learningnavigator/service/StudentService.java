@@ -41,9 +41,14 @@ public class StudentService {
     }
 
     public void registerForExam(Long studentId, Long examId) {
-        // Implement registration logic here
-        // You might want to fetch the student and exam from their respective repositories
-        // and then perform the registration operation
+
+        Student student = studentRepository.findById(studentId)
+                                           .orElseThrow(() -> new IllegalArgumentException("Student not found with ID: " + studentId));
+        Exam exam = examRepository.findById(examId)
+                                   .orElseThrow(() -> new IllegalArgumentException("Exam not found with ID: " + examId));
+
+        student.registerForExam(exam);
+        studentRepository.save(student);
     }
 }
 

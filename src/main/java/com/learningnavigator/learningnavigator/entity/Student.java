@@ -31,5 +31,10 @@ public class Student {
     @ManyToMany(mappedBy = "registeredStudents")
     private List<Exam> registeredExams;
 
+    public void registerForExam(Exam exam) {
+        registeredExams.add(exam);
+        exam.getRegisteredStudents().add(this);
+    }
+
 }
 
