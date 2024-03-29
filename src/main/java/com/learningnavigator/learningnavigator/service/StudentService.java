@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import java.util.List;
 
+
 import com.learningnavigator.learningnavigator.repository.*;
 import com.learningnavigator.learningnavigator.entity.*;
 
@@ -14,6 +15,9 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private SubjectRepository subjectRepository;
 
     @Autowired
     private ExamRepository examRepository;
@@ -51,6 +55,16 @@ public class StudentService {
                                    .orElseThrow(() -> new IllegalArgumentException("Exam not found with ID: " + examId));
 
         student.registerForExam(exam);
+        studentRepository.save(student);
+    }
+
+    public void enrollStudentForSubject(Long studentId, Long subjectId) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new IllegalArgumentException("Student not found with ID: " + studentId));
+        Subject subject = subjectRepository.findById(subjectId)
+                .orElseThrow(() -> new IllegalArgumentException("Subject not found with ID: " + subjectId));
+        
+        student.addEnrolledSubject(subject);
         studentRepository.save(student);
     }
 }

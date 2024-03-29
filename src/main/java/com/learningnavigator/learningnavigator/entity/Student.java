@@ -2,7 +2,9 @@ package com.learningnavigator.learningnavigator.entity;
 
 import jakarta.persistence.*;
 import java.util.List;
+import java.util.ArrayList;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data 
 @NoArgsConstructor 
@@ -22,6 +24,7 @@ public class Student {
     
     private String name;
     
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "student_subject",
                joinColumns = @JoinColumn(name = "student_id"),
@@ -34,6 +37,14 @@ public class Student {
     public void registerForExam(Exam exam) {
         registeredExams.add(exam);
         exam.getRegisteredStudents().add(this);
+    }
+
+    public void addEnrolledSubject(Subject subject) {
+        if (enrolledSubjects == null) {
+            enrolledSubjects = new ArrayList<>();
+        }
+        enrolledSubjects.add(subject);
+        subject.getEnrolledStudents().add(this);
     }
 
 }

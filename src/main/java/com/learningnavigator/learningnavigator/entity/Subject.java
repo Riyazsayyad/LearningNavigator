@@ -3,6 +3,7 @@ package com.learningnavigator.learningnavigator.entity;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data 
 @NoArgsConstructor 
@@ -22,6 +23,7 @@ public class Subject {
 
     private String name;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "enrolledSubjects")
     private List<Student> enrolledStudents;
 

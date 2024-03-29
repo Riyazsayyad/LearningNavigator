@@ -53,5 +53,11 @@ public class StudentController {
         studentService.registerForExam(studentId, examId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PostMapping("/{studentId}/enroll-subject/{subjectId}")
+    public ResponseEntity<Void> enrollStudentForSubject(@PathVariable Long studentId, @PathVariable Long subjectId) {
+        studentService.enrollStudentForSubject(studentId, subjectId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
 

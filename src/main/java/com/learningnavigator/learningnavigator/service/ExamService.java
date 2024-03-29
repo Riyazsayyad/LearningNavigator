@@ -21,9 +21,6 @@ public class ExamService {
         Exam exam = examRepository.findById(examId)
                                   .orElseThrow(() -> new RuntimeException("Exam not found"));
 
-        // Perform validation and registration logic here
-        // For example, check if the student is already registered for this exam
-
         List<Student> registeredStudents = exam.getRegisteredStudents();
         registeredStudents.add(student);
         exam.setRegisteredStudents(registeredStudents);
@@ -31,5 +28,4 @@ public class ExamService {
         return examRepository.save(exam);
     }
 
-    // Other methods for CRUD operations on exams
 }
