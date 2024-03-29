@@ -15,6 +15,9 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private ExamRepository examRepository;
+
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
